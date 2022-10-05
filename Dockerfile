@@ -17,7 +17,7 @@ COPY --from=0 /usr/local/src/hugo /usr/bin/hugo
 
 VOLUME /site
 WORKDIR /site
-EXPOSE 3000
+EXPOSE 1313
 
 ENTRYPOINT [ "hugo" ]
 CMD [ "--help" ]
