@@ -19,5 +19,5 @@ VOLUME /site
 WORKDIR /site
 EXPOSE 1313
 
-ENTRYPOINT [ "hugo" ]
+ENTRYPOINT [ "/usr/bin/hugo" ]
 CMD [ "--help" ]
