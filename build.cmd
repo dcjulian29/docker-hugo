@@ -13,6 +13,8 @@ docker tag dcjulian29/hugo:%VERSION% dcjulian29/hugo:latest
 
 :FINAL
 
+goreleaser --snapshot --skip-publish --clean
+
 popd
 
 endlocal
