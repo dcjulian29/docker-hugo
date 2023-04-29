@@ -12,7 +12,7 @@ builds:
       - darwin
     goarch:
       - amd64
-    ldflags: -s -w -X main.imageVersion={{ if index .Env "VERSION" }}{{ .Env.VERSION }}{{ else }}latest{{ end }}
+    ldflags: -s -w -X main.imageVersion={{ .Version }}
 archives:
   - files:
       - LICENSE
