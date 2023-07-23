@@ -1,6 +1,6 @@
 ---
 name: Build Tool
-on:
+'on':
   push:
     paths:
       - '**.go'
