@@ -66,6 +66,8 @@ func main() {
 
 	if len(args) > 0 {
 		docker = append(docker, args...)
+	} else {
+		docker = append(docker, "")
 	}
 
 	cmd := exec.Command("docker", docker...)

@@ -1,2 +1,4 @@
 .docker/
 dist/
+.hugo_build.lock
+public/
