@@ -52,7 +52,8 @@ func main() {
 		docker = append(docker, "-p")
 		docker = append(docker, fmt.Sprintf("%d:1313/tcp", port))
 
-		args = append(args, "--bind 0.0.0.0")
+		args = append(args, "--bind")
+		args = append(args, "0.0.0.0")
 	}
 
 	if len(args) > 0 {
