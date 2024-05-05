@@ -1,13 +1,36 @@
 ---
-name: Release Tool
+name: Hugo Tool
 
 'on':
   push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
+
+  pull_request:
 
 jobs:
-  tool:
+  build:
+    name: Build Tool
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - run: git fetch --force --tags
+
+      - uses: actions/setup-go@v4
+        with:
+          cache-dependency-path: ${{ github.workspace }}/go.sum
+          go-version-file: ${{ github.workspace }}/go.mod
+
+      - uses: goreleaser/goreleaser-action@v4
+        with:
+          args: build --snapshot --clean
+
+  release:
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    name: Release Tool
+    needs: [build]
     runs-on: windows-2022
 
     steps:
