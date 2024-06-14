@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine
+FROM golang:1.22-alpine
 
 ARG VERSION
 ARG HUGO_BUILD_TAGS=extended
