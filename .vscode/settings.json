@@ -4,6 +4,7 @@
     "chocolateys",
     "dcjulian",
     "goarch",
-    "ldflags"
+    "ldflags",
+    "nfpms"
   ]
 }

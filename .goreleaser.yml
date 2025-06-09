@@ -1,7 +1,10 @@
 ---
+version: 2
 before:
   hooks:
     - go mod tidy
+    - go mod verify
+
 builds:
   - binary: hugo
     env:
@@ -13,6 +16,7 @@ builds:
     goarch:
       - amd64
     ldflags: -s -w -X main.imageVersion={{ .Version }}
+
 archives:
   - files:
       - LICENSE
@@ -22,8 +26,9 @@ archives:
       mode: 0755
     name_template: "dcjulian29.apps.hugo-via-docker_{{ .Version }}_{{ .Os }}"
     format_overrides:
-      - format: zip
+      - formats: [ "zip" ]
         goos: windows
+
 nfpms:
   - package_name: dcjulian29.apps.hugo-via-docker
     file_name_template: "{{ .PackageName }}_{{ .Version }}"
@@ -45,6 +50,7 @@ nfpms:
       apk:
         dependencies:
           - docker
+
 chocolateys:
   - name: dcjulian29.apps.hugo-via-docker
     authors: Julian Easterling <julian@julianscorner.com>
@@ -60,8 +66,7 @@ chocolateys:
     api_key: "{{ .Env.CHOCO_API_KEY }}"
     source_repo: "https://www.myget.org/F/dcjulian29-chocolatey/"
     skip_publish: false
-snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+
 changelog:
   sort: asc
   filters:
