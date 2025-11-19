@@ -4,7 +4,10 @@
     "chocolateys",
     "dcjulian",
     "goarch",
+    "gohugoio",
     "ldflags",
+    "libc",
+    "libstdc",
     "nfpms"
   ]
 }
