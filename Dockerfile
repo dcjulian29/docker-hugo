@@ -18,7 +18,7 @@ RUN mkdir -p /go/src/github.com/gohugoio && \
 
 #---------------------------------------------
 
-FROM alpine:3.22
+FROM golang:1.25-alpine
 
 COPY --from=0 /go/bin/hugo /usr/bin/hugo
 
