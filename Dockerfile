@@ -1,4 +1,4 @@
-FROM golang:1.25-alpine
+FROM golang:1.26-alpine
 
 ARG VERSION
 ARG HUGO_BUILD_TAGS=extended
@@ -17,7 +17,7 @@ RUN cd /go/src/github.com/gohugoio/hugo && \
     mage hugo && \
     mage install
 
-FROM golang:1.25-alpine
+FROM golang:1.26-alpine
 
 COPY --from=0 /go/bin/hugo /usr/bin/hugo
 
